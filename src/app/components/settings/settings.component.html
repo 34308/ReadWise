@@ -1,0 +1,103 @@
+<div class="example-action-buttons">
+  <button style="background-color: #D5573B;margin: 20px" mat-button (click)="accordion.openAll()">Expand All</button>
+  <button style="background-color: #D5573B;margin: 20px" mat-button (click)="accordion.closeAll()">Collapse All</button>
+</div>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Change Password
+      </mat-panel-title>
+      <mat-panel-description>
+        Enter your infromations
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Old Password</mat-label>
+      <input matInput [type]="hide2 ? 'password' : 'text'" [(ngModel)]="changePassword.oldPassword">
+      <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label >New password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"[(ngModel)]="changePassword.newPassword">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Repeat new password</mat-label>
+      <input matInput [type]="hide3 ? 'password' : 'text'" [(ngModel)]="changePassword.repeatPassword">
+      <button mat-icon-button matSuffix (click)="hide3 = !hide3" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide3">
+        <mat-icon>{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button style=" background-color: #D5573B;margin: 20px" mat-button (click)="UpdatePassword()">Change</button>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Change UserName
+      </mat-panel-title>
+      <mat-panel-description>
+        Enter your infromations
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Login</mat-label>
+      <input matInput type="text"  [(ngModel)]="changeLogin.newLogin">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide4 ? 'password' : 'text'" [(ngModel)]="changeLogin.password" >
+      <button mat-icon-button matSuffix (click)="hide4 = !hide4" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide4">
+        <mat-icon>{{hide4 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button style="background-color: #D5573B;margin: 20px" mat-button (click)="updateUsername()">Change</button>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Change Email
+      </mat-panel-title>
+      <mat-panel-description>
+        Enter your infromations
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="text"  [(ngModel)]="changeEmail.newEmail">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide5 ? 'password' : 'text'" [(ngModel)]="changeEmail.password" >
+      <button mat-icon-button matSuffix (click)="hide5 = !hide5" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide5">
+        <mat-icon>{{hide5 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button style="background-color: #D5573B;margin: 20px" mat-button (click)="updateEmail()">Change</button>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Delete Account
+      </mat-panel-title>
+      <mat-panel-description>
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide6 ? 'password' : 'text'" [(ngModel)]="deletePassword" >
+      <button mat-icon-button matSuffix (click)="hide6 = !hide6" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide6">
+        <mat-icon>{{hide6 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button style="background-color: #D5573B;margin: 20px" mat-button (click)="DeleteAccount()">DELETE</button>
+  </mat-expansion-panel>
+</mat-accordion>

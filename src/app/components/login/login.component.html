@@ -1,0 +1,28 @@
+<div style="background-color: #272932;">
+  <mat-card  style="background-color: #272932; justify-content: center;align-content: center;align-items: center;background-size: auto">
+    <mat-card-header>
+      <mat-card-title>Sign In</mat-card-title>
+    </mat-card-header>
+    <p>
+      <mat-form-field appearance="fill" >
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Min 8 characters" value="" [(ngModel)]="credentials.login">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Min 8 characters" [(ngModel)]="credentials.password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <button (click)="Login()" mat-fab extended style="background-color: #D5573B ">
+      <mat-icon>assignment_ind</mat-icon>
+      Login
+    </button>
+  </mat-card>
+</div>

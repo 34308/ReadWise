@@ -1,0 +1,45 @@
+<div style="background-color: #272932;">
+<mat-card  style="background-color: #272932; justify-content: center;align-content: center;align-items: center;background-size: auto">
+  <mat-card-header>
+    <mat-card-title>Crate Account</mat-card-title>
+  </mat-card-header>
+  <p>
+    <mat-form-field appearance="fill" >
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Min 8 characters" value="" [(ngModel)]="credentials.name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill" >
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Min 8 characters" value="" [(ngModel)]="credentials.email">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Min 8 characters" [(ngModel)]="credentials.password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Enter your password again</mat-label>
+        <input matInput [type]="Re_hide ? 'password' : 'text'"placeholder="Min 8 characters" [(ngModel)]="rePassword">
+        <button mat-icon-button matSuffix (click)="Re_hide = !Re_hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="Re_hide">
+          <mat-icon>{{Re_hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <button (click)="CrateAccount()" mat-fab extended style="background-color: #D5573B ">
+      <mat-icon>assignment_ind</mat-icon>
+      Crate Account
+    </button>
+
+
+</mat-card>
+</div>
