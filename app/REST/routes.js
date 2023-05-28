@@ -1,9 +1,10 @@
 import userEndpoint from './user.endpoint';
-import postEndpoint from './post.endpoint';
-
+import bookEndpoint from './book.endpoint';
+import favoriteEndpoint from './favorite.endpoint';
 const routes = function (router) {
     userEndpoint(router);
-    postEndpoint(router);
+    bookEndpoint(router);
+    favoriteEndpoint(router);
 };
 
 export default routes;

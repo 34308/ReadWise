@@ -1,22 +1,27 @@
-import postDAO from '../DAO/postDAO';
+import bookDAO from '../DAO/BookDAO';
 
 function create(context) {
     async function query() {
-        let result = postDAO.query();
+        let result = bookDAO.query();
         if (result) {
             return result;
         }
     }
 
     async function get(id) {
-        let result = await postDAO.get(id);
+        let result = await bookDAO.get(id);
         if (result) {
             return result;
         }
     }
-
+    async function getMany([id]) {
+        let result = await bookDAO.get(id);
+        if (result) {
+            return result;
+        }
+    }
     async function createNewOrUpdate(data) {
-        let result = await postDAO.createNewOrUpdate(data);
+        let result = await bookDAO.createNewOrUpdate(data);
         if (result) {
             return result;
         }
@@ -25,6 +30,7 @@ function create(context) {
     return {
         query: query,
         get: get,
+        getMany:getMany,
         createNewOrUpdate: createNewOrUpdate,
     };
 }

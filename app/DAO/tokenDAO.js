@@ -58,7 +58,7 @@ async function get(tokenValue) {
 }
 
 async function remove(userId) {
-  return await TokenModel.deleteOne({ userId: userId });
+  return await TokenModel.deleteMany({ userId: userId });
 }
 
 export default {

@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import * as _ from 'lodash';
 import applicationException from '../service/applicationException';
 import mongoConverter from '../service/mongoConverter';
+import Promise from "bluebird";
 
 
 const passwordSchema = new mongoose.Schema({
@@ -23,10 +24,28 @@ async function createOrUpdate(data) {
   }
   return result;
 }
-
-async function authorize(userId, password) {
+async function putNewPassword(userid,password) {
+  console.log("check2");
+  return Promise.resolve().then(() => {
+    if (!userid) {
+      return "false id, no user with such id";
+    } else {
+      return  PasswordModel.updateOne({userId:userid},  { password: password } , { new: true });
+    }
+  }).catch(error => {
+    if ('ValidationError' === error.name) {
+      error = error.errors[Object.keys(error.errors)[0]];
+      throw applicationException.new(applicationException.BAD_REQUEST, error.message);
+    }
+    throw error;
+  });
+}
+async function authorize(userId,password) {
+  console.log("authorize"+userId);
   const result = await PasswordModel.findOne({ userId: userId, password: password });
-  if (result && mongoConverter(result)) {
+  console.log("authorize r"+result);
+
+  if (result && mongoConverter(await result)) {
     return true;
   }
   throw applicationException.new(applicationException.UNAUTHORIZED, 'User and password does not match');
@@ -35,6 +54,6 @@ async function authorize(userId, password) {
 export default {
   createOrUpdate: createOrUpdate,
   authorize: authorize,
-
+  putNewPassword: putNewPassword,
   model: PasswordModel
 };
