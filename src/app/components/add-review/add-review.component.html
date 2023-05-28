@@ -1,0 +1,43 @@
+<div style="background-color: #272932;">
+  <mat-card  style="background-color: #272932; justify-content: center;align-content: center;align-items: center;background-size: auto">
+    <mat-card-header>
+      <mat-card-title style="color: #D5573B">Write your review</mat-card-title>
+    </mat-card-header>
+    <p>
+      <mat-form-field style="margin-right: 20px" appearance="fill" >
+        <mat-label>Book Title</mat-label>
+        <input matInput value="" [(ngModel)]="review.title">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="margin-right: 20px">
+        <mat-label>Author</mat-label>
+        <input matInput value="" [(ngModel)]="review.author">
+      </mat-form-field>
+      <mat-form-field appearance="fill" >
+        <mat-label>link to image of the cover</mat-label>
+        <input matInput value="" [(ngModel)]="review.image">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="margin-right: 20px" appearance="fill" >
+        <mat-label>Review title</mat-label>
+        <input matInput value="" [(ngModel)]="review.subtitle">
+      </mat-form-field>
+      <mat-form-field appearance="fill" >
+        <mat-label>Rating</mat-label>
+        <input matInput value="" type="number" min="1" max="5" [(ngModel)]="review.rating">
+      </mat-form-field>
+
+    </p>
+    <p>
+      <mat-form-field style="width: 600px;height: 500px" appearance="fill" >
+        <mat-label>Review</mat-label>
+        <textarea [maxlength]="2500" style="width: 600px;height: 500px" [(ngModel)]="review.review" matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+    </p>
+
+    <button (click)="AddReview()" mat-fab extended style="margin: 10px;background-color: #D5573B ">
+      <mat-icon>book</mat-icon>
+      Crate Review
+    </button>
+  </mat-card>
+</div>
