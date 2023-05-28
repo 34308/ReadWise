@@ -1,0 +1,16 @@
+  <mat-card class="example-card" style="border-radius: 20px;margin: 20px">
+  <mat-card-header>
+      <div *ngFor="let item of generateArray(rating)">
+        <mat-icon>stars</mat-icon>
+      </div>
+    <mat-card-title [textContent]="title" ></mat-card-title>
+    <mat-card-subtitle [textContent]="subtitle"></mat-card-subtitle>
+  </mat-card-header>
+  <img (click)="GoToDetail()" class="crop" mat-card-image [src]="image" alt="Photo of a book">
+  <mat-card-content>
+    <p [textContent]="getPartReview()"></p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="AddToFavorites()" mat-button>LIKE</button>
+  </mat-card-actions>
+</mat-card>

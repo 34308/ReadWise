@@ -1,0 +1,17 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.crop {
+  height: 650px;
+  widtht: auto;
+  overflow: hidden;
+}
+.crop img {
+  height: auto;
+  width: 400px;
+}

@@ -1,0 +1,20 @@
+
+.crop {
+  height: 650px;
+  widtht: 200px;
+  overflow: hidden;
+}
+.crop img {
+  height: auto;
+  width: 400px;
+}
+.example-card {
+  align-self: center;
+  align-items: center;
+  align-content: center;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
