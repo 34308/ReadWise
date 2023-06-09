@@ -1,6 +1,6 @@
 
 <div style="background-color: #272932;align-content: space-between;display: inline-block;inline-size: fit-content" *ngFor="let item of items$ ">
 
-  <favorite-item [image]="item.image" [rating]="item.rating" [review]="item.review" [subtitle]="item.subtitle" [id]="item.id" [title]="item.title"></favorite-item>
+  <favorite-item (childEvent)="removeFavorite($event)" [image]="item.image" [rating]="item.rating" [review]="item.review" [subtitle]="item.subtitle" [id]="item.id" [title]="item.title"></favorite-item>
 
 </div>

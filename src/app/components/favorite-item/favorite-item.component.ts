@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
 
@@ -14,6 +14,7 @@ export class FavoriteItemComponent implements  OnInit {
   @Input() rating!: number;
   @Input() title?: string;
   @Input() id?: string;
+  @Output() childEvent = new EventEmitter();
   constructor(private router: Router,private dataService:DataService) { }
   getPartReview():string{
     if(this.review!=undefined){
@@ -35,16 +36,14 @@ export class FavoriteItemComponent implements  OnInit {
     if(this.id!=undefined){
       this.dataService.DeleteFavoritesById(this.id).subscribe(
         response => {
-          // Handle the response
-          console.log('Favorite added successfully');
+          this.childEvent.emit(this.id);
+          console.log('Favorite deleted successfully');
         },
         error => {
-          // Handle the error
           console.error('Failed to add favorite:', error);
         }
       );
     }
-
   }
 
   generateArray(n: number): number[] {

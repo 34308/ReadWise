@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {DataService} from "../../services/data.service";
 import {NavbarComunicationService} from "../../services/navbar-comunication.service";
@@ -32,11 +32,12 @@ export class FavoritesComponent implements OnInit,OnDestroy{
       this.items$ = response;
       if(Object.keys(response).length==0){
         this.openSnackBar("Brak danych","nie masz żadnych recenzji dodanych do ulubionych");
-
       }
     },error => {
-
     });
+  }
+  removeFavorite(itemToRemoveId :any){
+    this.items$ = this.items$.filter((obj: { id: any; }) => obj.id !== itemToRemoveId);
   }
   ngOnDestroy() {
     this.navbarCommunication.HideBar();
