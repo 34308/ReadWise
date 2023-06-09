@@ -30,14 +30,14 @@ async function get(id) {
     await favModel.findOne({userId:id}).then(function (result) {
         if (result) {
             favIds = result.toObject();
-            console.log(favIds.reviewId);
+
         }
     });
     if(!favIds){
-        favModel()
+        return new favModel();
     }
     return BookModel.model.find({_id:favIds.reviewId}).then(function (result) {
-        console.log(result);
+
         if (result) {
             return mongoConverter(result);
         }
@@ -46,8 +46,7 @@ async function get(id) {
 async function removeById(userId,reviewIdToDelete) {
     return favModel.updateOne(
         { userId: userId },
-        { $pull: { reviewId: reviewIdToDelete } }
-    )
+        { $pull: { reviewId: reviewIdToDelete}})
         .then(result => {
             return mongoConverter(result)
         })
